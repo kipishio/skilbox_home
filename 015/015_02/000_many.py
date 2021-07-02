@@ -1,3 +1,3 @@
 #import task_001_vipolnen.task_15_02_001
 #import task_002_vipolnen.task_15_02_002
-import task_003.task_15_02_003
+import task_003_vipolnen.task_15_03_003
