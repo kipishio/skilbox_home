@@ -20,3 +20,4 @@ print("\nПодсчет слов в тексте")
 
 for index in range(3):
     print(word_search[index], ':', count[index])
+print()
