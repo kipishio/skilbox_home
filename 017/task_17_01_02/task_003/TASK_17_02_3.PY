@@ -18,8 +18,3 @@ print(first_percent_list)
 second_percent_list = [up_percent(i, second_percent) for i in first_percent_list]
 print(second_percent_list)
 print("Сумма цен за каждый год: ", round(sum(price_list), 2), round(sum(first_percent_list),2), round(sum(second_percent_list), 2))
-
-
-
-
-
