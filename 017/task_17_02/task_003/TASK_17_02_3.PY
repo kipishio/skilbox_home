@@ -1,7 +1,7 @@
 def up_percent(i_price, percent):
     return round(i_price + ((i_price/100)*percent), 2)
 
-price_list = [float(input('Цена на товар: ')) for n in range(5)]
+price_list = [float(input('Цена на товар: ')) for _ in range(5)]
 print(price_list)
 fist_percent = int(input("Повышение на первый год: "))
 second_percent = int(input("Повышение на второй год: "))
