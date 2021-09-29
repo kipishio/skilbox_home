@@ -9,7 +9,6 @@ data_dict['Имя'] = insert_data_list[0]
 data_dict['Фамилия'] = insert_data_list[1]
 data_dict['Город'] = insert_data_list[2]
 data_dict['Место учебы'] = insert_data_list[3]
-data_dict['Фамилия'] = insert_data_list[4]
 data_dict['Оценки'] = []
 for data in insert_data_list[4:]:
     data_dict['Оценки'].append(int(data))
