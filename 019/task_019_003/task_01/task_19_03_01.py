@@ -26,11 +26,12 @@ family_member['children'] = [
     {"name": "Bob", "age": 8}
 ]
 print(family_member)
-name_search = family_member.get('children')[1]['name']
-print(name_search)
+
 
 for name_count in family_member.get('children'):
+    print(name_count)
+    # if name_count.get('name', 'Nosurname') == 'Bob44':
+    #     print("Фамилия у {0} = {1}".format(name_count['name'], family_member['surname']))
+    # else:
+    #     print(name_count.get('name', 'Nosurname'))
     print(name_count['name'])
-    if name_count.get('name') == 'Bob':
-        print("Фамилия у {0} = {1}".format(name_count['name'], family_member['surname']))
-
