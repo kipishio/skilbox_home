@@ -1,29 +1,36 @@
-family_member = {
-    'info_user': {"name": "Jane", "surname": "Doe", "age": '35'}
-}
+# family_member = {
+#     "name": "Jane",
+#     "surname": "Doe",
+#     "hobbies": ["running", "sky diving", "singing"],
+#     "age": 35,
+#     "children": [
+#         {
+#             "name": "Alice",
+#             "age": 6
+#         },
+#         {
+#             "name": "Bob",
+#             "age": 8
+#         }
+#     ]
+# }
 
-family_member = {"hobbies":
-    {
-        1: "running",
-        2: "sky diving",
-        3: "singing"
-    }
-}
+family_member = {"name": "Jane", "surname": "Doe",}
 
-family_member = {
-    "children": {
-        1: {"name": "Alice", "age": '6'},
-        2: {"name": "Bob", "age": '8'}}
-}
+family_member['hobbies'] = ["running", "sky diving", "singing"]
+
+family_member['age'] = 35
+
+family_member['children'] = [
+    {"name": "Alice", "age": 6},
+    {"name": "Bob", "age": 8}
+]
 print(family_member)
-print(family_member['c'])
-print(family_member['info_user']['name'])
-# print("Bob", family_member.get('children').get(2).get('name'))
-# print(family_member['children'])
-# name_fio_b = ''
-#
-# for chil in family_member["children"].keys():
-#     print(family_member["children"][chil]['name'])
-#     if family_member["children"][chil]['name'] == 'Bob':
-#
-#         print(family_member['info_user'])
+name_search = family_member.get('children')[1]['name']
+print(name_search)
+
+for name_count in family_member.get('children'):
+    print(name_count['name'])
+    if name_count.get('name') == 'Bob':
+        print("Фамилия у {0} = {1}".format(name_count['name'], family_member['surname']))
+
