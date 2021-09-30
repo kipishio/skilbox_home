@@ -5,10 +5,17 @@ def count(text):
             count_alpha[alp] += 1
         else:
             count_alpha[alp] = 1
-    for name in count_alpha.keys():
-        print('{0}:{1} '.format(name, count_alpha[name]), end=' ')
-    print("Максимальная частота: {0}".format(max(count_alpha)))
-alpha = sorted(input('Введите текст: ').lower())
+    return count_alpha
+    # for name in count_alpha.keys():
+    #     print('{0}:{1} '.format(name, count_alpha[name]), end=' ')
 
-count(alpha)
-# print(alpha)
+    # print("Максимальная частота: {0}".format(max(count_alpha)))
+
+
+alpha = input('Введите текст: ').lower()
+hist = count(alpha)
+
+for sym in sorted(hist.keys()):
+    print(sym, ':', hist[sym])
+
+print(max(hist.values()))
