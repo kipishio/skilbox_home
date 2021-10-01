@@ -15,7 +15,7 @@
 #     ]
 # }
 
-family_member = {"name": "Jane", "surname": "Doe",}
+family_member = {"name": "Jane", "surname": "Doe"}
 
 family_member['hobbies'] = ["running", "sky diving", "singing"]
 
@@ -27,11 +27,12 @@ family_member['children'] = [
 ]
 print(family_member)
 
-
+fam = ''
 for name_count in family_member.get('children'):
-    print(name_count)
-    # if name_count.get('name', 'Nosurname') == 'Bob44':
-    #     print("Фамилия у {0} = {1}".format(name_count['name'], family_member['surname']))
-    # else:
-    #     print(name_count.get('name', 'Nosurname'))
-    print(name_count['name'])
+    for imya in name_count:
+        if name_count[imya] == 'Bob':
+            print('Имя {0}'.format(name_count[imya]))
+            fam = family_member.get('surname', 'Nosurname')
+
+print("Фамилия {0}".format(fam))
+
