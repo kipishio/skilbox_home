@@ -40,6 +40,8 @@ for i_goods in goods:
                 dict_goods[i_goods]['quantity'] = dict_goods[i_goods]['quantity'] + i_store['quantity']
                 dict_goods[i_goods]['price'] = dict_goods[i_goods]['price'] + (i_store['price'] * i_store['quantity'])
 
-print(dict_goods)
-
+# print(dict_goods)
+print('Результат работы программы.\n')
+for name_goods in dict_goods:
+    print('{0} - {1} шт, стоимость {2} руб.\n'.format(name_goods, dict_goods.get(name_goods).get('quantity'), dict_goods.get(name_goods).get('price')))
 
