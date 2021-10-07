@@ -18,4 +18,4 @@ hist = count(alpha)
 for sym in sorted(hist.keys()):
     print(sym, ':', hist[sym])
 
-print(max(hist.values()))
+print("Максимальное частота ", max(hist.values()))
