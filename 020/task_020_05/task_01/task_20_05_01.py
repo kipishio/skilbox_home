@@ -7,7 +7,7 @@ data = {
 }
 
 series = int(input('Укажите номер паспорта: '))
-number = int(input('Укажите серию пасморта: '))
+number = int(input('Укажите серию паспорта: '))
 
 for i_key, i_data in data.items():
     if series in i_key and number in i_key:
