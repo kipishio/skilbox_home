@@ -1,25 +1,14 @@
 site = {
-
     'html': {
-
         'head': {
-
             'title': 'Мой сайт'
-
         },
-
         'body': {
-
             'h2': 'Здесь будет мой заголовок',
-
             'div': 'Тут, наверное, какой-то блок',
-
             'p': 'А вот здесь новый абзац'
-
         }
-
     }
-
 }
 
 
@@ -35,9 +24,6 @@ def poisk(key, data_dict):
     else:
         result = None
     return result
-
-
-
 
 
 search = input('Искомый ключ: ')
