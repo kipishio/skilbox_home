@@ -1,4 +1,4 @@
-def create_dict(data, template=dict()):
+def create_dict(data):
     if isinstance(data, dict):
         return data
 
@@ -9,8 +9,8 @@ def create_dict(data, template=dict()):
 def data_preparation(old_list):
     new_list = []
     for i_element in old_list:
-        if create_dict(i_element, old_list) is not None:
-            new_list.append(create_dict(i_element, old_list))
+        if create_dict(i_element) is not None:
+            new_list.append(create_dict(i_element))
     return new_list
 
 
