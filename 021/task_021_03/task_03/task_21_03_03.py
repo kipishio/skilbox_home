@@ -1,16 +1,16 @@
-def create_dict(data, template=dict()):
-    if isinstance(data, dict):
-        return data
+def create_dict(data_my):
+    if isinstance(data_my, dict):
+        return data_my
 
-    if isinstance(data, int) or isinstance(data, float) or isinstance(data, str):
-        return {data: data}
+    if isinstance(data_my, int) or isinstance(data_my, float) or isinstance(data_my, str):
+        return {data_my: data_my}
 
 
 def data_preparation(old_list):
     new_list = []
     for i_element in old_list:
-        if create_dict(i_element, old_list) is not None:
-            new_list.append(create_dict(i_element, old_list))
+        if create_dict(i_element) is not None:
+            new_list.append(create_dict(i_element))
     return new_list
 
 
