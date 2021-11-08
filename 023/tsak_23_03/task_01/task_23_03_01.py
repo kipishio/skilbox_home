@@ -18,10 +18,5 @@ def try_except(path):
 
 
 
-
-
-
-
-
 path_ = 'test.txt'
 try_except(path_)
