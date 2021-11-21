@@ -1,4 +1,4 @@
-from beds import Bed_potatoes
+from garden import Bed_potatoes
 
 bed_1 = Bed_potatoes(8)
 bed_1.check_potetos()
