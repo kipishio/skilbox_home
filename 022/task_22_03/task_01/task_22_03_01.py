@@ -20,3 +20,4 @@ file_2.close()
 print(summa)
 print(diff)
 print(compose)
+

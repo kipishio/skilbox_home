@@ -12,3 +12,6 @@ for i_elem in intrasting_dir:
     path = os.path.abspath(os.path.join('..', '..', '..', '..', i_elem))
     print_dirs(path)
 
+
+
+
