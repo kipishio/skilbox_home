@@ -16,9 +16,8 @@ class Unit:
         return self.__hitpoint
 
 
-
 class Soldier(Unit):
-    def __init__(self,hitpoint):
+    def __init__(self, hitpoint):
         super().__init__(hitpoint)
         self.__damage = 0
 
@@ -30,15 +29,17 @@ class Soldier(Unit):
 
 
 class Citizen(Unit):
-    def __init__(self,hitpoint):
+    def __init__(self, hitpoint):
         super().__init__(hitpoint)
         self.__damage = 0
 
     def __str__(self):
-        return 'Простой человек: Здоровье: {hitpoint}, Урон: {damage}'.format( hitpoint=self.get_hitpoint(), damage=self.__damage)
+        return 'Простой человек: Здоровье: {hitpoint}, Урон: {damage}'.format(hitpoint=self.get_hitpoint(),
+                                                                              damage=self.__damage)
 
     def set_damage(self, damage):
         self.__damage += damage * 2
+
 
 sold = Soldier(45)
 print(sold)
