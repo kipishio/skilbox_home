@@ -22,7 +22,7 @@ class Military_Robot(Robot):
         self.__weapon = weapon
 
     def operate(self):
-        print('Защита объекта с помощью оружия {}'.format(self.__weapon))
+        print('Защита объекта с помощью оружия {}.'.format(self.__weapon), end='')
 
     def get_weapon(self):
         return self.__weapon
@@ -34,8 +34,9 @@ class Submarine(Military_Robot):
         self.__rude = rude
 
     def operate(self):
-        print('Защита объекта с помощью оружия {}. Охрана ведется под водой на глубине {}'.format(self.get_weapon(),
-                                                                                                  self.__rude))
+        print()
+        super().operate()
+        print(' Охрана ведется под водой на глубине {}'.format(self.__rude))
 
 
 vacuum_cleaner = Hoover('Пылесос')
