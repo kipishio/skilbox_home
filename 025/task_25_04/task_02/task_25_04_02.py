@@ -3,10 +3,10 @@ class Can_Fly:
         self.__height = 0
         self.__speed = 0
 
-    def take_off(self):
+    def take_off(self): # Взлететь
         pass
 
-    def fly(self):
+    def fly(self): # Лететь
         pass
 
     def to_land(self):
@@ -31,12 +31,50 @@ class Butterfly(Can_Fly):
     def __init__(self):
         super().__init__()
 
+    def __str__(self):
+        return 'Бабочка, Скорость: {}, Высота: {}'.format(self.get__speed(), self.get_hight())
+
     def take_off(self):
         self.set_hight(1)
 
     def fly(self):
         self.set_speed(0.5)
 
-    def land(self):
-        self.__height = 0
-        self.__speed = 0
+
+class Rocket(Can_Fly):
+    def __str__(self):
+        return 'Ракета, Скорость: {}, Высота: {}'.format(self.get__speed(), self.get_hight())
+
+    def take_off(self):
+        self.set_hight(500)
+        self.set_speed(1000)
+
+
+    def to_land(self):
+        super().to_land()
+        print('Взрыв ракеты')
+
+
+butterfly = Butterfly()
+print(butterfly)
+
+butterfly.take_off()
+print(butterfly)
+
+butterfly.fly()
+print(butterfly)
+
+butterfly.to_land()
+print(butterfly)
+print()
+
+rocket = Rocket()
+print(rocket)
+
+rocket.take_off()
+print(rocket)
+
+rocket.to_land()
+print(rocket)
+
+
