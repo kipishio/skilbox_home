@@ -1,52 +1,41 @@
 import math
 
-class  Primes:
+
+class Primes:
     def __init__(self, number):
-        self.__number = number
-        self.__start = 0
-        self.result = 0
-        self.count = int(math.sqrt(self.__number))+1
-        self.list_number = [i for i in range(2, self.__number)]
-
-        for i in range(2, self.count):
-            for j in range(len(self.list_number)):
-                if self.list_number[j] % i == 0:
-                    if self.list_number[j] != i:
-                        self.list_number[j] = 1
-            self.list_number = set(self.list_number)
-            self.list_number = list(self.list_number)
-        self.list_number = sorted(self.list_number)
-        self.len_list = len(self.list_number)
-
+        self.__count_number = number
+        self.__start = 2
 
     def __iter__(self):
-        self.__start = 0
-        self.result = 0
-        self.count = int(math.sqrt(self.__number)) + 1
-
-        self.list_number = [i for i in range(2, self.__number)]
-
-        for i in range(2, self.count):
-            for j in range(len(self.list_number)):
-                if self.list_number[j] % i == 0:
-                    if self.list_number[j] != i:
-                        self.list_number[j] = 1
-            self.list_number = set(self.list_number)
-            self.list_number = list(self.list_number)
-        self.list_number = sorted(self.list_number)
-        self.len_list = len(self.list_number)
-
+        self.__start = 2
         return self
 
-    def __next__(self):
-        if self.__start < self.len_list:
-            self.result = self.list_number[self.__start]
-            self.__start += 1
-            return self.result
+    def __prime_number(self, numb_iter):
+        self.__numb_iter = numb_iter
+        self.__number_of_divisors = math.ceil(math.sqrt(self.__numb_iter))
+        if self.__numb_iter == 2 or self.__numb_iter == 3:
+            return True
+
+        for i in range(2, self.__number_of_divisors + 1):
+            if self.__numb_iter % i == 0:
+                return False
+
         else:
-            raise StopIteration
+            return True
 
+    def __next__(self):
+        self.__result = 0
+        while True:
+            if self.__start <= self.__count_number:
+                if self.__prime_number(self.__start):
+                    self.__result = self.__start
+                    self.__start += 1
+                    return self.__result
+                else:
+                    self.__start += 1
 
+            else:
+                raise StopIteration
 
 
 prime_nums = Primes(50)
@@ -54,7 +43,7 @@ prime_nums = Primes(50)
 for i_elem in prime_nums:
     print(i_elem, end=' ')
 
-# print()
-#
-# for i_elem in prime_nums:
-#     print(i_elem, end=' ')
+print()
+
+for i_elem in prime_nums:
+    print(i_elem, end=' ')
