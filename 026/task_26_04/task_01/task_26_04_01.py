@@ -1,4 +1,4 @@
-class СountIterator:
+class Сount_iterator:
     def __init__(self):
         self.__counter = 0
 
@@ -11,7 +11,7 @@ class СountIterator:
         return self.result
 
 
-my_iter = СountIterator()
+my_iter = Сount_iterator()
 
 for i_elem in my_iter:
 
