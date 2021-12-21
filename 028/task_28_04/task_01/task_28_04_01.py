@@ -68,7 +68,7 @@ print()
 
 amfib_drozd = Amphibian(name='Амфибия Дрозд', color='Черный', speed=70)
 amfib_drozd.print_info()
-amfib_drozd.to_ride()
+# amfib_drozd.to_ride()
 amfib_drozd.signal()
 amfib_drozd.play_music()
 
