@@ -30,7 +30,7 @@ class Transport(ABC):
 
 
 class MusicMixed:
-    def play_music(self):
+    def play_music(self) -> None:
         '''Класс примесь для расширения возможности дочерних классов'''
         print('Играет музыка!!!')
 
