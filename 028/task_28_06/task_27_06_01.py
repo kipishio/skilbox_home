@@ -11,26 +11,53 @@ class Transport(ABC):
         :param color: str
         :param speed: int
         """
-        self.__name = name
-        self.__color = color
-        self.__speed = speed
+        self.name = name
+        self.color = color
+        self.speed = speed
 
-    def print_info(self):
-        print('Транспорт {name}, цвет {color}, скорость {speed}.'.format(name=self.__name, color=self.__color,
-                                                                         speed=self.__speed))
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name: str):
+        self._name = name
+
+    @property
+    def color(self):
+        return self._color
+
+    @color.setter
+    def color(self, color: str):
+        self._color = color
+
+    @property
+    def speed(self):
+        return self._speed
+
+    @speed.setter
+    def speed(self, speed: int):
+        self._speed = speed
+
+    def __str__(self):
+        return 'Транспорт {name}, цвет {color}, скорость {speed}.'.format(name=self._name, color=self._color,
+                                                                          speed=self._speed)
 
     @abstractmethod
     def to_ride(self) -> None:
         """Декорируемый абстрактный метод выбора езды в зависимости от класса транспорта"""
         print('Выбери свой путь!')
 
-    def signal(self)->None:
+    @classmethod
+    def signal(cls) -> None:
         """Функция вызова сигнала"""
         print("Сигнал")
 
 
 class MusicMixed:
-    def play_music(self) -> None:
+
+    @classmethod
+    def play_music(cls) -> None:
         """Класс примесь для расширения возможности дочерних классов"""
         print('Играет музыка!!!')
 
@@ -58,22 +85,27 @@ class Amphibian(Transport, MusicMixed):
 
 
 kia_rio = Terrestrial(name='Kia Rio', color='Мокрый асфальт', speed=250)
-kia_rio.print_info()
+print(kia_rio)
 kia_rio.to_ride()
 kia_rio.signal()
 print()
 
 kater = Water(name='Катер', color='Красный', speed=50)
-kater.print_info()
+print(kater)
 kater.to_ride()
 kater.signal()
 print()
 
 amfib_drozd = Amphibian(name='Амфибия Дрозд', color='Черный', speed=70)
-amfib_drozd.print_info()
-# amfib_drozd.to_ride()
+print(amfib_drozd)
+amfib_drozd.to_ride()
 amfib_drozd.signal()
 amfib_drozd.play_music()
-
+print()
 print('Вывод MRO дл я класса {class_name}, MRO = {mro_print}'.format(class_name=amfib_drozd.__class__.__name__,
                                                                      mro_print=amfib_drozd.__class__.__mro__))
+print(kia_rio.speed)
+print(kia_rio.color)
+kia_rio.color = 'Супер красный'
+kia_rio.speed = 300
+print(kia_rio)

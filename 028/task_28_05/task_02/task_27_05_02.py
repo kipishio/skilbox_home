@@ -1,10 +1,7 @@
-import traceback
-
 class Example:
 
     def __init__(self):
         print('Вызов __init__')
-
 
     def __enter__(self):
         print('Вызов __enter__')
@@ -21,10 +18,10 @@ class Example:
 
         return True
 
+
 my_obj = Example()
 
 with my_obj as obj:
-
     print('Код внутри первого вызова контекст менеджера')
 
     with my_obj as obj2:
