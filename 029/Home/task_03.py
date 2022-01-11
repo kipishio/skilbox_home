@@ -2,57 +2,64 @@ from typing import Callable
 from datetime import datetime
 import functools
 
+def decor_func(func):
 
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print('До')
+        result = func(*args, **kwargs)
+        print('После')
+        return result
+    return wrapper
 
+def log_methods(format):
 
-def log_methods(format_d_t):
-	def decor_cls(cls):
-		def wrapper(*args, **kwargs):
+    def decor_func(cls):
+        for i_named_func in dir(cls):
+            if i_named_func.startswith('__') is False:
+                name_func = decor_func(getattr(cls, i_named_func))
+                setattr(cls, i_named_func, name_func)
 
-			for dir_name in dir(cls):
-				if dir_name.startswith('__') is False:
-					pass
-				result = 8
-			return result
+        @functools.wraps(cls)
+        def wrapper(*arg, **kwargs):
+            return cls
+        return wrapper()
+    return decor_func
 
-		return wrapper
-
-	return decor_cls
 
 
 @log_methods("b d Y - H:M:S")
 class A:
-	def test_sum_1(self) -> int:
-		print('test sum 1')
-		number = 100
-		result = 0
-		for _ in range(number + 1):
-			result += sum([i_num ** 2 for i_num in range(10000)])
+    def test_sum_1(self) -> int:
+        print('test sum 1')
+        number = 100
+        result = 0
+        for _ in range(number + 1):
+            result += sum([i_num ** 2 for i_num in range(10000)])
 
-		return result
+        return result
 
 
 @log_methods("b d Y - H:M:S")
 class B(A):
-	def test_sum_1(self):
-		super().test_sum_1()
-		print("Наследник test sum 1")
+    def test_sum_1(self):
+        super().test_sum_1()
+        print("Наследник test sum 1")
 
-	def test_sum_2(self):
-		print("test sum 2")
-		number = 200
-		result = 0
-		for _ in range(number + 1):
-			result += sum([i_num ** 2 for i_num in range(10000)])
+    def test_sum_2(self):
+        print("test sum 2")
+        number = 200
+        result = 0
+        for _ in range(number + 1):
+            result += sum([i_num ** 2 for i_num in range(10000)])
 
-		return result
-
+        return result
 
 my_obj = B()
 my_obj.test_sum_1()
 my_obj.test_sum_2()
 
-#
+
 # Результат:#
 # - Запускается 'B.test_sum_1'. Дата и время запуска: Apr 23 2021 - 21:50:37
 # - Запускается 'A.test_sum_1'. Дата и время запуска: Apr 23 2021 - 21:50:37
