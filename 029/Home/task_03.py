@@ -3,7 +3,6 @@ from datetime import datetime
 import functools
 
 def decor_func(func):
-
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         print('До')
@@ -13,12 +12,16 @@ def decor_func(func):
     return wrapper
 
 def log_methods(format):
-
     def decor_func(cls):
         for i_named_func in dir(cls):
-            if i_named_func.startswith('__') is False:
-                name_func = decor_func(getattr(cls, i_named_func))
-                setattr(cls, i_named_func, name_func)
+            if i_named_func.startswith('__') == False:
+                name_func = getattr(cls, i_named_func)
+
+                print('/'*5, name_func)
+
+                dec_func = decor_func(name_func)
+                # dec_func(cls)
+                setattr(cls, i_named_func, dec_func)
 
         @functools.wraps(cls)
         def wrapper(*arg, **kwargs):
@@ -42,6 +45,7 @@ class A:
 
 @log_methods("b d Y - H:M:S")
 class B(A):
+
     def test_sum_1(self):
         super().test_sum_1()
         print("Наследник test sum 1")
