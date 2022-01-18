@@ -20,9 +20,9 @@ grades: List[Dict[str, Union[str, int]]] = [
 minimal_ = min(grades, key=lambda elem: elem['score'])
 print('Минимальное значение minimal_ : {minimal_name} = {minimal_value}'.format(
     minimal_name=minimal_['name'],
-    minimal_value = minimal_['score']))
+    minimal_value=minimal_['score']))
 
 maximal_ = max(grades, key=lambda elem: elem['score'])
 print('Минимальное значение maximal_ : {maximal_name} = {maximal_value}'.format(
     maximal_name=maximal_['name'],
-    maximal_value = maximal_['score']))
+    maximal_value=maximal_['score']))
