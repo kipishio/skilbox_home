@@ -1,27 +1,36 @@
 import functools
-import locale
-from typing import Callable
+
+# import locale
+# from typing import Callable
 
 counter = dict()
 
+
 def log_decor(func):
-	counter = dict()
-	@functools.wraps(func)
-	def wrapper(*args, **kwargs):
-		nonlocal counter
-		result = func(*args, **kwargs)
-		if func.__name__ in  counter:
-			counter[func.__name__] += 1
-		else:
-			counter[func.__name__] = 1
+    # global counter
+    counter = dict()
+    print(locals())
+    print(globals())
 
-		return result
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        nonlocal counter
+        result = func(*args, **kwargs)
 
-	return wrapper
+        if func.__name__ in counter:
+            counter[func.__name__] += 1
+        else:
+            counter[func.__name__] = 1
+
+        return result
+
+    return wrapper
+
 
 @log_decor
 def hello():
-	print('Hello')
+    print('Hello')
+
 
 hello()
 hello()
