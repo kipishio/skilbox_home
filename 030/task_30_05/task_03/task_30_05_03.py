@@ -21,10 +21,11 @@ sentences = ["Nory was a Catholic", "because her mother was a Catholic", "and No
 
 def counts_meet(my_int: Union[str, int], my_list_z: str) -> int:
     """
-    Функция принимает в первый аргумент строку или число, а во второй аргумент строку.
-    :param my_int:
-    :param my_list_z:
-    :return:
+    Функция принимает в первый аргумент строку или число, а во второй аргумент строку. И считает количество совпадений
+    из строк переданных в аргументах.
+    :param my_int: Union[str, int] - или строка для поиска, или количество совпадений поиска.
+    :param my_list_z: строка для поиска в ней совпадений.
+    :return: int - сумма количества совпадений.
     """
     elem = 'was'
     my_int = my_int
