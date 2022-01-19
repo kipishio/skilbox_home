@@ -26,25 +26,25 @@ def func():
 	var = 1
 
 
-	# def f3():
-	# 	par = 3
-	# 	if 'var' not in locals():
-	# 		raise Exception
-	# 	print('var' in locals())
-	#
-	# f3()
-
-
-
-	def f4():
-		par = 2
-		print(locals())
-		print(var)
+	def f3():
+		par = 3
 		if 'var' not in locals():
 			raise Exception
+		print('var' in locals())
+
+	f3()
 
 
-	f4()
+
+	# def f4():
+	# 	par = 2
+	# 	print(locals())
+	# 	print(var)
+	# 	if 'var' not in locals():
+	# 		raise Exception
+	#
+	#
+	# f4()
 
 	# def f5():
 	# 	var = 4
