@@ -15,3 +15,4 @@ if __name__ == '__main__':
 	result1 = my_re_comp.findall(text)
 
 	print(result1)
+#123456

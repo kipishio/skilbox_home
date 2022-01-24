@@ -10,3 +10,4 @@ if __name__ == "__main__":
 	result = my_re_com_pa.findall(text)
 
 	print(result)
+#123456
