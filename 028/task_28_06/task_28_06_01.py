@@ -11,9 +11,9 @@ class Transport(ABC):
         :param color: str
         :param speed: int
         """
-        self.name = name
-        self.color = color
-        self.speed = speed
+        self._name = name
+        self._color = color
+        self._speed = speed
 
     @property
     def name(self):
